@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="my_mobile_manipulator">
+    <group name="arm">
+        <chain base_link="base_link" tip_link="gripper_base_link"/>
+    </group>
+    <group name="gripper">
+        <joint name="finger_joint_1"/>
+        <joint name="finger_joint_2"/>
+    </group>
+    
+    <group_state name="zero" group="arm">
+        <joint name="arm_joint_1" value="0"/>
+        <joint name="arm_joint_2" value="0"/>
+        <joint name="arm_joint_3" value="0"/>
+        <joint name="arm_joint_4" value="0"/>
+        <joint name="arm_joint_5" value="0"/>
+        <joint name="arm_joint_6" value="0"/>
+    </group_state>
+    
+    <group_state name="home" group="arm">
+        <joint name="arm_joint_1" value="0"/>
+        <joint name="arm_joint_2" value="-0.77"/>
+        <joint name="arm_joint_3" value="1.64"/>
+        <joint name="arm_joint_4" value="1.96"/>
+        <joint name="arm_joint_5" value="0.78"/>
+        <joint name="arm_joint_6" value="-0.26"/>
+    </group_state>
+    
+    <end_effector name="hand" parent_link="gripper_base_link" group="gripper" parent_group="arm"/>
+    
+    <virtual_joint name="virtual_joint" type="planar" parent_frame="odom" child_link="base_footprint"/>
+    
+    <disable_collisions link1="arm_base_link" link2="arm_link_1" reason="Adjacent"/>
+    <disable_collisions link1="arm_base_link" link2="arm_link_2" reason="Never"/>
+    <disable_collisions link1="arm_base_link" link2="back_caster" reason="Never"/>
+    <disable_collisions link1="arm_base_link" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="arm_base_link" link2="camera_link" reason="Never"/>
+    <disable_collisions link1="arm_base_link" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="arm_base_link" link2="laser_link" reason="Default"/>
+    <disable_collisions link1="arm_base_link" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="arm_base_link" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="arm_link_2" reason="Adjacent"/>
+    <disable_collisions link1="arm_link_1" link2="arm_link_5" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="arm_link_6" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="back_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="base_link" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="camera_link" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="laser_link" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_1" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="arm_link_3" reason="Adjacent"/>
+    <disable_collisions link1="arm_link_2" link2="arm_link_4" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="back_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="base_link" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="camera_link" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="laser_link" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_2" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_3" link2="arm_link_4" reason="Adjacent"/>
+    <disable_collisions link1="arm_link_3" link2="back_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_3" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_3" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_3" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="arm_link_4" link2="arm_link_5" reason="Adjacent"/>
+    <disable_collisions link1="arm_link_4" link2="arm_link_6" reason="Never"/>
+    <disable_collisions link1="arm_link_4" link2="back_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_4" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="arm_link_4" link2="gripper_base_link" reason="Never"/>
+    <disable_collisions link1="arm_link_5" link2="arm_link_6" reason="Adjacent"/>
+    <disable_collisions link1="arm_link_6" link2="gripper_base_link" reason="Adjacent"/>
+    <disable_collisions link1="back_caster" link2="base_link" reason="Adjacent"/>
+    <disable_collisions link1="back_caster" link2="camera_link" reason="Never"/>
+    <disable_collisions link1="back_caster" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="back_caster" link2="gripper_right_finger" reason="Never"/>
+    <disable_collisions link1="back_caster" link2="laser_link" reason="Never"/>
+    <disable_collisions link1="back_caster" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="back_caster" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="base_link" link2="camera_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="front_caster" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="laser_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="left_wheel" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="right_wheel" reason="Adjacent"/>
+    <disable_collisions link1="camera_link" link2="front_caster" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="laser_link" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="camera_link" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="front_caster" link2="laser_link" reason="Never"/>
+    <disable_collisions link1="front_caster" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="front_caster" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="gripper_base_link" link2="gripper_left_finger" reason="Adjacent"/>
+    <disable_collisions link1="gripper_base_link" link2="gripper_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="laser_link" link2="left_wheel" reason="Never"/>
+    <disable_collisions link1="laser_link" link2="right_wheel" reason="Never"/>
+    <disable_collisions link1="left_wheel" link2="right_wheel" reason="Never"/>
+</robot>

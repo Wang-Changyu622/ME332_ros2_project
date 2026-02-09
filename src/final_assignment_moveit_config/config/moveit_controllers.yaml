@@ -1,0 +1,28 @@
+# MoveIt 控制器管理器配置
+moveit_controller_manager: moveit_simple_controller_manager/MoveItSimpleControllerManager
+
+moveit_simple_controller_manager:
+  controller_names:
+    - arm_controller
+    - gripper_controller
+
+  arm_controller:
+    # 对应 ros2_controllers.yaml 中的控制器名称
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - arm_joint_1
+      - arm_joint_2
+      - arm_joint_3
+      - arm_joint_4
+      - arm_joint_5、
+      - arm_joint_6 
+  gripper_controller:
+    # 对应 ros2_controllers.yaml 中的控制器名称
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - finger_joint_1
+      - finger_joint_2
